@@ -76,29 +76,20 @@ def test_delete_user(client, user, token):
     assert response.json() == {'message': 'User deleted'}
 
 
-def test_update_integrity_error(client, user, token):
+def test_update_integrity_error(client, user, other_user, token):
 
-    client.post(
-        '/users/',
-        json={
-            'username': 'fausto',
-            'email': 'fausto@example.com',
-            'password': 'secret',
-        },
-    )
-
-    response = client.put(
+    response_update = client.put(
         f'/users/{user.id}',
         headers={'Authorization': f'Bearer {token}'},
         json={
-            'username': 'fausto',
+            'username': other_user.id,
             'email': 'bob@example.com',
             'password': 'mynewpassword',
         },
     )
 
-    assert response.status_code == HTTPStatus.CONFLICT
-    assert response.json() == {'detail': 'Username or Email already exists'}
+    assert response_update.status_code == HTTPStatus.CONFLICT
+    assert response_update.json() == {'detail': 'Username or Email already exists'}
 
 
 def test_create_user_deve_return_409_exists__exercicio(client, user):
