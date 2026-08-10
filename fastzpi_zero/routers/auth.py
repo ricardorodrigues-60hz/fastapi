@@ -11,6 +11,7 @@ from fastzpi_zero.models import User
 from fastzpi_zero.schemas import Token
 from fastzpi_zero.security import (
     create_access_token,
+    get_current_user,
     verify_password,
 )
 
@@ -18,6 +19,7 @@ router = APIRouter(prefix='/auth', tags=['auth'])
 
 T_Session = Annotated[AsyncSession, Depends(get_session)]
 OAuth2Form = Annotated[OAuth2PasswordRequestForm, Depends()]
+CurrentUser = Annotated[User, Depends(get_current_user)]
 
 
 @router.post('/token', response_model=Token)
@@ -29,16 +31,23 @@ async def login_for_access_token(session: T_Session, form_data: OAuth2Form):
 
     if not user:
         raise HTTPException(
-            status_code=HTTPStatus.CONFLICT,
-            detail='Username already exists',
+            status_code=HTTPStatus.UNAUTHORIZED,
+            detail='Incorrect email or password',
         )
 
     if not verify_password(form_data.password, user.password):
         raise HTTPException(
-            status_code=HTTPStatus.CONFLICT,
+            status_code=HTTPStatus.UNAUTHORIZED,
             detail='Incorrect email or password',
         )
 
     access_token = create_access_token(data={'sub': user.email})
 
     return {'access_token': access_token, 'token_type': 'bearer'}
+
+
+@router.post('/refresh_token', response_model=Token)
+async def refresh_access_token(user: CurrentUser):
+    new_access_token = create_access_token(data={'sub': user.email})
+
+    return {'access_token': new_access_token, 'token_type': 'bearer'}
