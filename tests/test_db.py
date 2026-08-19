@@ -39,6 +39,7 @@ async def test_create_todo(session, user):
         description='Test Desc',
         state='draft',
         user_id=user.id,
+      
     )
 
     session.add(todo)
@@ -52,6 +53,8 @@ async def test_create_todo(session, user):
         'state': 'draft',
         'title': 'Test Todo',
         'user_id': 1,
+        'created_at': todo.created_at,
+        'updated_at': todo.updated_at,
     }
 
 
