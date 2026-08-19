@@ -8,8 +8,8 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.14,<4.0"
 dependencies = [
-    "fastapi[standard] (>=0.138.1,<0.139.0)",
-    "sqlalchemy[asyncio] (>=2.0.51,<3.0.0)",
+    "fastapi[standard] (>=0.141.1,<0.142.0)",
+    "sqlalchemy[asyncio] (>=2.0.52,<3.0.0)",
     "pydantic-settings (>=2.14.2,<3.0.0)",
     "alembic (>=1.18.5,<2.0.0)",
     "pyjwt (>=2.13.0,<3.0.0)",
@@ -37,7 +37,7 @@ dev = [
 ]
 
 [tool.ruff]
-line-length = 79
+line-length = 179
 extend-exclude = ['migrations']
 
 [tool.ruff.lint]
@@ -63,3 +63,5 @@ pre_test = 'task lint'
 test = 'pytest -s -x --cov=fastzpi_zero -vv'
 post_test = 'coverage html --show-contexts'
 
+[tool.typos.default]
+extend-ignore-identifiers-re = ["selectin"]

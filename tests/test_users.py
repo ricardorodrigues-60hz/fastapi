@@ -82,7 +82,7 @@ def test_update_integrity_error(client, user, other_user, token):
         f'/users/{user.id}',
         headers={'Authorization': f'Bearer {token}'},
         json={
-            'username': other_user.id,
+            'username': other_user.username,
             'email': 'bob@example.com',
             'password': 'mynewpassword',
         },
