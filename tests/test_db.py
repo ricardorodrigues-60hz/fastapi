@@ -39,7 +39,6 @@ async def test_create_todo(session, user):
         description='Test Desc',
         state='draft',
         user_id=user.id,
-      
     )
 
     session.add(todo)
