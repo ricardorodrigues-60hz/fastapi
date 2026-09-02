@@ -3,7 +3,7 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
-from fastzpi_zero.models import TodoState
+from fastapi_rest.models import TodoState
 
 
 class Message(BaseModel):

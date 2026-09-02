@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from fastzpi_zero.schemas import UserPublic
+from fastapi_rest.schemas import UserPublic
 
 
 def test_create_user(client):

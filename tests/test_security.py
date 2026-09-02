@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 from jwt import decode
 
-from fastzpi_zero.security import create_access_token, settings
+from fastapi_rest.security import create_access_token, settings
 
 
 def test_jwt():

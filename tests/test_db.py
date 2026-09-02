@@ -3,7 +3,7 @@ from dataclasses import asdict
 import pytest
 from sqlalchemy import select
 
-from fastzpi_zero.models import Todo, User
+from fastapi_rest.models import Todo, User
 
 
 @pytest.mark.asyncio

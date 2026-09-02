@@ -4,7 +4,7 @@ import factory.fuzzy
 import pytest
 from sqlalchemy import select
 
-from fastzpi_zero.models import Todo, TodoState, User
+from fastapi_rest.models import Todo, TodoState, User
 
 
 def test_create_todo(client, token, mock_db_time):

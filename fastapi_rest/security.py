@@ -3,16 +3,16 @@ from http import HTTPStatus
 from typing import Annotated
 from zoneinfo import ZoneInfo
 
-from fastapi import Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer
+from fastapi_rest import Depends, HTTPException
+from fastapi_rest.security import OAuth2PasswordBearer
 from jwt import DecodeError, ExpiredSignatureError, decode, encode
 from pwdlib import PasswordHash
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from fastzpi_zero.database import get_session
-from fastzpi_zero.models import User
-from fastzpi_zero.settings import Settings
+from fastapi_rest.database import get_session
+from fastapi_rest.models import User
+from fastapi_rest.settings import Settings
 
 settings = Settings()
 

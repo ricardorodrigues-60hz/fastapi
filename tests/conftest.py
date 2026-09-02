@@ -9,10 +9,10 @@ from sqlalchemy import event
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.pool import StaticPool
 
-from fastzpi_zero.app import app
-from fastzpi_zero.database import get_session
-from fastzpi_zero.models import User, table_registry
-from fastzpi_zero.security import get_password_hash
+from fastapi_rest.app import app
+from fastapi_rest.database import get_session
+from fastapi_rest.models import User, table_registry
+from fastapi_rest.security import get_password_hash
 
 
 @pytest.fixture

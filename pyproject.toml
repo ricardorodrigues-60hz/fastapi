@@ -1,7 +1,7 @@
 [project]
-name = "fastzpi-zero"
+name = "fastapi_rest"
 version = "0.1.0"
-description = ""
+description = "restful api with fastapi"
 authors = [
     {name = "ricardo",email = "101021873+ricardorodrigues-60hz@users.noreply.github.com"}
 ]
@@ -50,7 +50,7 @@ quote-style = 'single'
 
 [tool.pytest]
 pythonpath = ['.']
-addopts = ['-p', 'no:warnings', '--cov=fast_zero', '--cov-context=test', '--cov-branch', '--random-order']
+addopts = ['-p', 'no:warnings', '--cov=fastapi_rest', '--cov-context=test', '--cov-branch', '--random-order']
 asyncio_default_fixture_loop_scope = 'function'
 
 [tool.taskipy.tasks]
@@ -58,9 +58,9 @@ pre_lint = 'typos'
 lint = 'ruff check'
 pre_format = 'ruff check --fix'
 format = 'ruff format'
-run = 'fastapi dev fastzpi_zero/app.py'
+run = 'fastapi dev fastapi_rest/app.py'
 pre_test = 'task lint'
-test = 'pytest -s -x --cov=fastzpi_zero -vv'
+test = 'pytest -s -x --cov=fastapi_rest -vv'
 post_test = 'coverage html --show-contexts'
 
 [tool.typos.default]

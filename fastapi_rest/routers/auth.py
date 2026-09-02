@@ -1,15 +1,15 @@
 from http import HTTPStatus
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi_rest import APIRouter, Depends, HTTPException
+from fastapi_rest.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from fastzpi_zero.database import get_session
-from fastzpi_zero.models import User
-from fastzpi_zero.schemas import Token
-from fastzpi_zero.security import (
+from fastapi_rest.database import get_session
+from fastapi_rest.models import User
+from fastapi_rest.schemas import Token
+from fastapi_rest.security import (
     create_access_token,
     get_current_user,
     verify_password,
