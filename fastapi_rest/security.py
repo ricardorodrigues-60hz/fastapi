@@ -3,8 +3,8 @@ from http import HTTPStatus
 from typing import Annotated
 from zoneinfo import ZoneInfo
 
-from fastapi_rest import Depends, HTTPException
-from fastapi_rest.security import OAuth2PasswordBearer
+from fastapi import Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer
 from jwt import DecodeError, ExpiredSignatureError, decode, encode
 from pwdlib import PasswordHash
 from sqlalchemy import select

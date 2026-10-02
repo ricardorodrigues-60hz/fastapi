@@ -1,8 +1,8 @@
 from http import HTTPStatus
 from typing import Annotated
 
-from fastapi_rest import APIRouter, Depends, HTTPException
-from fastapi_rest.security import OAuth2PasswordRequestForm
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 

@@ -3,8 +3,8 @@ from http import HTTPStatus
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from fastapi.routers import auth, todos, users
-from fastapi.schemas import Message
+from fastapi_rest.routers import auth, todos, users
+from fastapi_rest.schemas import Message
 
 app = FastAPI(title='Minha API BALA')
 
